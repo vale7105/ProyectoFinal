@@ -1,0 +1,36 @@
+.head{
+	display: flex;
+    font-family: Broadway;
+	align-items: center;
+	justify-content: space-between;
+	height: 63px;
+	background: blueviolet;
+	position: fixed;
+	width: 100%;
+	z-index: 100;/*esto evita en que se posicione ante de cualquier elemento */
+}
+.navbar{
+  display: flex;
+  margin-right: 10px;
+}
+
+
+.navbar a{
+  display: block;
+  padding: 20px 20px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.navbar a:hover{
+  background: hotpink;
+
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

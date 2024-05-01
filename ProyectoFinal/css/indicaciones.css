@@ -1,0 +1,113 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    
+  }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(https://imgv3.fotor.com/images/gallery/Purple-gradient-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: 0;
+    padding: 0;
+    height: 100vh;
+    background-position: center;
+    
+
+}
+#title_pr{
+    font-family: Broadway;
+    margin-left: 20px;
+    font-size: 37px;
+    text-align: center;
+    background-image: linear-gradient(to right, #000000, #d2176b, #ff5898, #000000); /* Degradado de colores */
+    background-size: 100%; /* Tamaño completo */
+    -webkit-background-clip: text; /* Clip de texto para aplicar el degradado */
+    background-clip: text; /* Clip de texto para aplicar el degradado - estándar */
+    -webkit-text-fill-color: transparent;
+    margin-top: 5px;
+    animation: fadeInUp 1s ease; /* Animación de entrada */
+
+}
+.header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header{
+	height: 60vh !important;/*representa el porcentaje de la altura del viewport del navegador. El viewport es la ventana visible del navegador en la que se muestra el contenido web.*/
+	background: url(https://png.pngtree.com/background/20210715/original/pngtree-plant-palm-leaf-simple-background-picture-image_1325702.jpg) no-repeat center;
+	background-size:cover ;
+}
+
+.title{
+	margin-bottom: 40px;
+	font-size: 60px;
+	font-weight: 600;/* se le asigna un groso */
+	text-transform: uppercase;
+	color: aliceblue;
+}
+
+p{
+	margin-bottom: 40px;
+	font-size: 18px;
+	color: white;
+	padding: 0 100px;
+}
+
+.btn{
+	display: inline-block;
+	margin-top: 15px;
+	padding: 10px 40px;
+	border: 2px solid darkred;
+	color: white;
+	text-decoration: none;
+	background: darkred;
+}
+
+.btn:hover{
+	background: none;
+}
+.btn-home{
+	display: flex;
+
+}
+.btn-home a{
+	margin: 0 10px;
+}
+.content{
+	height: 62vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.container {
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2 {
+    color: #6b17d2;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+a {
+    color: #6b17d2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
