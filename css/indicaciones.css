@@ -71,6 +71,19 @@ p{
 	text-decoration: none;
 	background: darkred;
 }
+ul {
+    display: flex; /* Utilizamos flexbox para alinear los elementos */
+    justify-content: center; /* Alinear los elementos horizontalmente */
+    list-style-type: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el relleno predeterminado */
+}
+
+ul li {
+    margin: 0 10px; /* Espacio horizontal entre elementos */
+    background-color: rgba(255, 255, 255, 0.7); /* Color de fondo semitransparente */
+    padding: 10px; /* Espacio interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
 
 .btn:hover{
 	background: none;
