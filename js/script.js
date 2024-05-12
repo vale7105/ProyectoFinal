@@ -707,7 +707,6 @@ const productosCosmeticos = [
             return;
         }
 
-        // Agregar más validaciones según sea necesario
 
         // Si todo está bien, enviar el formulario
         alert('¡Producto registrado con éxito!');
@@ -732,5 +731,3 @@ document.addEventListener("DOMContentLoaded", function() {
   // Llamar a la función de animación repetidamente
   setInterval(toggleAnimation, 2000); // Repetir cada 2 segundos (2000ms de animación + 2000ms de pausa)
 });
-
-

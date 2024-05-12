@@ -92,4 +92,10 @@ body{
     justify-content: center;
     flex-direction: row;
 }
+@media screen and (max-width: 768px) {
+    .content {
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+        margin-bottom: 20px; /* Espacio inferior entre bloques */
+    }
+}
 

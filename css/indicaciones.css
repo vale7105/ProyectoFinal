@@ -16,9 +16,9 @@ body {
     background-repeat: no-repeat;
     position: 0;
     padding: 0;
-    height: 100vh;
+    height: 340vh;
     background-position: center;
-    
+
 
 }
 #title_pr{
@@ -34,17 +34,31 @@ body {
     margin-top: 5px;
     animation: fadeInUp 1s ease; /* Animación de entrada */
 
+    
 }
 .header{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.header{
-	height: 60vh !important;/*representa el porcentaje de la altura del viewport del navegador. El viewport es la ventana visible del navegador en la que se muestra el contenido web.*/
+	height: 65vh !important;/*representa el porcentaje de la altura del viewport del navegador. El viewport es la ventana visible del navegador en la que se muestra el contenido web.*/
 	background: url(https://png.pngtree.com/background/20210715/original/pngtree-plant-palm-leaf-simple-background-picture-image_1325702.jpg) no-repeat center;
 	background-size:cover ;
+}
+.btni{
+	display: inline-block;
+	margin-top: 15px;
+	padding: 10px 40px;
+	border: 2px solid rgb(0, 88, 139);
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	background: rgb(106, 230, 255, 0.5);
+}
+.btni:hover{
+	background: none;
+}
+
+.btni-hom a{
+	margin: 0 10px;
+}
+.produc{
+    color: #ffffff;
 }
 
 .title{
@@ -53,25 +67,29 @@ body {
 	font-weight: 600;/* se le asigna un groso */
 	text-transform: uppercase;
 	color: aliceblue;
+    font-family: Georgia;
 }
 
-p{
+.p{
 	margin-bottom: 40px;
-	font-size: 18px;
+	font-size: 25px;
 	color: white;
 	padding: 0 100px;
+    text-align: center;
+    font-family: Georgia;
 }
 
-.btn{
-	display: inline-block;
-	margin-top: 15px;
-	padding: 10px 40px;
-	border: 2px solid darkred;
-	color: white;
-	text-decoration: none;
-	background: darkred;
+
+#Subtitle_Re{
+    text-align: center;
+    color: #ffffff;
+    font-size: 25px;
+    font-family:Georgia;
 }
+
 ul {
+    font-family: Georgia;
+    font-size: 20px;
     display: flex; /* Utilizamos flexbox para alinear los elementos */
     justify-content: center; /* Alinear los elementos horizontalmente */
     list-style-type: none; /* Eliminar los puntos de la lista */
@@ -84,7 +102,79 @@ ul li {
     padding: 10px; /* Espacio interno */
     border-radius: 5px; /* Bordes redondeados */
 }
+#titl{
+	margin-bottom: 40px;
+	font-size: 18px;
+	color: white;
+	padding: 0 100px;
+    margin-bottom: 10px;
+}
 
+.content{
+	height: 65vh;
+	flex-direction: column;
+	align-items: center;
+    text-align: center;
+    font-size: 25px;
+    font-family: georgia;
+}
+
+.saw{
+	padding: 30px;
+   
+}
+.content_mv{
+    display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.mision,
+.vision {
+    width: calc(50% - 20px);
+   
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin:20px 20px 20px 20px;
+    
+}
+
+.box-container{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	text-align: center;
+    
+}
+.box-container .box{
+	height: 15rem;/*representa el tamaño de fuente del elemento raíz del documento. El elemento raíz es típicamente el elemento <html>.*/
+	width: 18rem;
+	background: #f990ff;
+	text-align: center;
+	border-radius: 1rem;
+    font-family: georgia;
+	box-shadow:0 .3rem 5rem rgba(0, 0, 0, 0.497);/*este sirve para darle un poco de sombra*/
+	margin: 2rem;
+}
+.box-container .box i{
+	height: 3rem;
+	width: 3rem;
+	line-height: 3rem;
+	text-align: center;
+	border-radius: 50%;
+	color: white;
+	background: #C7209C;
+	font-size: 2rem;
+	margin: 1rem 0;
+}
+.box-container .box h3{
+	font-size: 20px;
+	color: rgb(136, 96, 255);
+}
+.box-container .box p{
+	font-size: 17px;
+	padding: 0 15px;
+}
 .btn:hover{
 	background: none;
 }
@@ -95,13 +185,6 @@ ul li {
 .btn-home a{
 	margin: 0 10px;
 }
-.content{
-	height: 62vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
 
 .container {
    font-family: Arial, Helvetica, sans-serif;
@@ -111,11 +194,6 @@ h1, h2 {
     color: #d2178a;
 }
 
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
 a {
     color: #d2176b;
     text-decoration: none;
@@ -123,4 +201,24 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+    .content {
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+        margin-bottom: 20px; /* Espacio inferior entre bloques */
+    }
+}
+.indi{
+	background: url(E:/repaso/img/rosas.jpg) no-repeat center;
+	background-attachment: fixed;
+	text-align: center;
+	background-size: cover;
+}
+.instrucciones{
+    
+    background-color: #ffffff;
+}
+#map {
+    height: 400px;
+    width: 100%;
 }
