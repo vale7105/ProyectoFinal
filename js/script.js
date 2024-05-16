@@ -28,7 +28,7 @@ const productosCosmeticos = [
       categoria: "Cuidado de la piel",
       marca: ["KIEHL'S Clearly Corrective", "LANCOME", "Invitive", "SISLEY", "DIOR", "ESTEE LAUDER" ],
       precio: 115000,
-      edadRecomendada: "Todo tipo de piel",
+      edadRecomendada: "Todas las edades",
       uso: "Aplica 4 o 5 gotas directamente en la piel seca",
       beneficios: ["Luminosidad", "Hidratación", "Humectación"],
       imagen: "E:/Fundamentos/ProyectoFinal/img/3.webp"
