@@ -9,7 +9,7 @@ const productosCosmeticos = [
       tipoPiel: "Piel madura",
       textura: "Crema",
       beneficios: ["Hidratación", "Antiarrugas", "Reafirmante"],
-      imagen: "E:/Fundamentos/ProyectoFinal/img/1.webp"
+      imagen: "E:/Fundamentos/ProyectoFinal/img/1.jpg"
     },
     {
       nombre: "Gel Limpiador Facial",
