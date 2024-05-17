@@ -57,7 +57,8 @@ a{
     width: 160px;
     height: 160px;
     border-radius: 90px;
-    margin-left: 35px;
+    margin-left: 25px;
+    margin-right: 5PX;
 }
 .wrapper{
     display: grid;
@@ -96,6 +97,7 @@ aside{
     gap: 1rem;
     font-weight: 600;
     padding: 1rem;
+    width: 100%;
 }
 .boton-menu.active{
     background-color: var(--clr-white);
@@ -135,6 +137,16 @@ aside{
     margin-top: 1rem;
 
 }
+.numerito{
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    padding: .15rem .25rem;
+    border-radius: .25rem;
+}
+.boton-carrito.active.numerito{
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+}
 .texto-footer{
     color: var(--clr-main-light);
     font-size:  .85rem;;
@@ -145,19 +157,27 @@ main{
     margin-left: 0;
     border-radius: 2rem;
     padding: 3rem;
+
 }
 .Titulo-principal{
     color: var(--clr-main);
     margin-bottom: 2rem;
     font-size: 25px;
 }
-.container-productos{
+.contenedor-productos{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+
+}
+
+.producto-title, .producto-beneficios, .producto-tipo, .producto-edad, .producto-marca, .producto-text, .producto-acabado, .producto-color, .producto-dur, .producto-tono, .producto-cont, .producto-uso, .producto-precio {
+    margin-bottom: 0.5rem;
 }
 .producto-img{
-    max-width: 100%;
+    width: 100%; /* Establece el ancho al 100% del contenedor */
+    height: 200px; /* Hace que la altura se ajuste automáticamente para mantener la proporción */
+    object-fit: cover; /* Escala la imagen para que cubra todo el contenedor manteniendo la proporción */
     border-radius: 1rem;
 }
 .producto-detalles{
@@ -199,7 +219,6 @@ main{
     gap: 1rem;
     
 }
-
 .carrito-vacio,
 .carrito-comprado{
     color: var(--clr-main);
@@ -268,4 +287,31 @@ main{
     cursor: pointer;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
+}
+.disabled{
+    display: none;
+}
+
+/*Paginacion*/
+
+.paginacion {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.boton-paginacion {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    border: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-paginacion:disabled {
+    background-color: var(--clr-gray);
+    cursor: not-allowed;
 }
