@@ -5,7 +5,7 @@ const botonAnterior = document.querySelector("#boton-anterior");
 const tituloPrincipal = document.querySelector(".Titulo-principal");
 const numerito = document.querySelector("#numerito");
 
-let productosPorPagina = 6; // 3 columnas x 2 filas
+let productosPorPagina = 9; // 3 columnas x 2 filas
 let paginaActual = 1;
 let productosFiltrados = [];
 let productosEnCarrito = [];
@@ -38,7 +38,7 @@ function cargarProductos(productosElegidos, pagina = 1) {
                 ${producto.contenido ? `<p class="producto-cont">Contenido: ${producto.contenido}</p>` : ''}
                 ${producto.uso ? `<p class="producto-uso">Uso: ${producto.uso}</p>` : ''}
                 <p class="producto-precio">$ ${producto.precio}</p> 
-                <button class="producto-agr" id="agregar-${producto.id}">Agregar</button>
+                <button class="producto-agr" id="${producto.id}">Agregar</button>
             </div>
         `;
         contenedorProductos.append(div);
@@ -54,7 +54,7 @@ function actualizarBotones() {
 }
 
 function agregarAlCarrito(e) {
-    const idBoton = e.currentTarget.id.replace('agregar-', '');
+    const idBoton = e.currentTarget.id;
     const productoAgregado = productosCosmeticos.find(item => item.id === idBoton);
 
     const productoEnCarrito = productosEnCarrito.find(producto => producto.id === idBoton);
@@ -66,7 +66,8 @@ function agregarAlCarrito(e) {
     }
 
     actualizarNumerito();
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productoEnCarrito));
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+
 }
 
 function actualizarNumerito() {
@@ -106,3 +107,4 @@ botonSiguiente.addEventListener("click", () => {
 botonAnterior.addEventListener("click", () => {
     cargarProductos(productosFiltrados, paginaActual - 1);
 });
+

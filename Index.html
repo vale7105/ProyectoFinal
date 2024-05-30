@@ -17,7 +17,7 @@
                 <a href="#">Buscador</a>
                 <a href="Indicaciones.html">Inicio</a>
                 <a href="Productos.html">Productos</a>
-                <a href="#">Precios</a>
+                <a href="#">Filtro</a>
             </nav>
         </div>
     </article>
@@ -34,11 +34,11 @@
                 <div class="form-group">
                     <label for="category">Categoría</label>
                     <select class="form-control" id="category">
-                        <option>Seleccionar categoría</option>
-                        <option>Maquillaje</option>
-                        <option>Cuidado de la piel</option>
-                        <option>Cabello</option>
-                        <option>Uñas</option>
+                        <option value="" disabled selected>Seleccionar categoría</option>
+                        <option value="Maquillaje">Maquillaje</option>
+                        <option value="Cuidado de la piel">Cuidado de la piel</option>
+                        <option value="Cabello">Cabello</option>
+                        <option value="Uñas">Uñas</option>
                     </select>
                 </div><br>
                 <div class="form-group">
@@ -48,7 +48,19 @@
                 <div class="form-group">
                     <label for="productImage">Imagen del Producto</label>
                     <img id="previewImage" src="#" alt="Preview Image" style="max-width: 200px; display: none;">
-                    <input type="file" class="form-control" id="productImage">
+                    <input type="select" class="form-control" id="productImage">
+                    <select name="productImage" id="productImage">
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
                 </div><br>
                 <!-- Campos adicionales específicos para cada categoría -->
                 <div id="additionalFields"></div>

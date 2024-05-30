@@ -582,30 +582,32 @@ const productosCosmeticos = [
     const productCodeInput = document.getElementById('productCode');
     const additionalFieldsDiv = document.getElementById('additionalFields');
 
-    // Opciones de categoría
-    const categorias = ["Maquillaje", "Cuidado de la piel", "Cabello", "Uñas"];
-
     // Función para agregar campos adicionales según la categoría seleccionada
     function addAdditionalFields(category) {
         additionalFieldsDiv.innerHTML = ''; // Limpiar campos adicionales antes de agregar nuevos
 
         if (category === 'Maquillaje') {
             const maquillajeFields = `
-            <div class="form-group">
-            <label for="tono">Tono</label>
-            <input type="text" class="form-control" id="tono" placeholder="Ingrese el tono">
-        </div><br>
-        <div class="form-group">
-            <label for="acabado">Acabado</label>
-            <input type="text" class="form-control" id="acabado" placeholder="Ingrese el acabado">
-        </div><br>
-        <div class="form-group">
-            <label for="duracion">Duración</label>
-            <input type="text" class="form-control" id="duracion" placeholder="Ingrese la duración">
-        </div><br>
-        <div class="form-group">
-            <label for="marc">Marca</label>
-            <input type="text" class="form-control" id="marc" placeholder="Ingrese la marca"><br>
+                <div class="form-group">
+                    <label for="tono">Tono</label>
+                    <input type="text" class="form-control" id="tono" placeholder="Ingrese el tono">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="acabado">Acabado</label>
+                    <input type="text" class="form-control" id="acabado" placeholder="Ingrese el acabado">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="duracion">Duración</label>
+                    <input type="text" class="form-control" id="duracion" placeholder="Ingrese la duración">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="marc">Marca</label>
+                    <input type="text" class="form-control" id="marc" placeholder="Ingrese la marca">
+                </div>
+                <br>
             `;
             additionalFieldsDiv.innerHTML = maquillajeFields;
         } else if (category === 'Cuidado de la piel') {
@@ -637,23 +639,28 @@ const productosCosmeticos = [
                 <div class="form-group">
                     <label for="hairType">Tipo de Cabello</label>
                     <input type="text" class="form-control" id="hairType" placeholder="Ingrese el tipo de cabello">
-                </div><br>
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="hairCondition">Contenido del producto</label>
                     <input type="text" class="form-control" id="hairCondition" placeholder="Ingrese el contenido">
-                </div><br>
+                </div>
+                <br>
                 <div class="form-group">
-                    <label for="dur">Duracion</label>
+                    <label for="dur">Duración</label>
                     <input type="text" class="form-control" id="dur" placeholder="Ingrese la duración">
-                </div><br>
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="us">Usos</label>
                     <input type="text" class="form-control" id="us" placeholder="Ingrese su uso">
-                </div><br>
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="mq">Marca</label>
-                    <input type="text" class="form-control" id="mq" placeholder="Ingrese el contenido">
-                </div><br>
+                    <input type="text" class="form-control" id="mq" placeholder="Ingrese la marca">
+                </div>
+                <br>
             `;
             additionalFieldsDiv.innerHTML = cabelloFields;
         } else if (category === 'Uñas') {
@@ -661,26 +668,30 @@ const productosCosmeticos = [
                 <div class="form-group">
                     <label for="nailColor">Color de Uñas</label>
                     <input type="text" class="form-control" id="nailColor" placeholder="Ingrese el color de uñas">
-                </div><br>
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="nailType">Acabado</label>
                     <input type="text" class="form-control" id="nailType" placeholder="Ingrese el acabado">
-                </div><br>
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="durc">Duración</label>
                     <input type="text" class="form-control" id="durc" placeholder="Ingrese la duración">
-                </div><br>
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="mr">Marca</label>
                     <input type="text" class="form-control" id="mr" placeholder="Ingrese la marca">
-                </div><br>
+                </div>
+                <br>
             `;
             additionalFieldsDiv.innerHTML = uñasFields;
         }
     }
 
     // Evento de cambio en la selección de categoría
-      categorySelect.addEventListener('change',function(){
+    categorySelect.addEventListener('change', function() {
         addAdditionalFields(this.value);
     });
 
@@ -695,7 +706,7 @@ const productosCosmeticos = [
             return;
         }
 
-        if (categorySelect.value === 'Seleccionar categoría') {
+        if (categorySelect.value === '' || categorySelect.value === 'Seleccione una categoría') {
             alert('Por favor, seleccione una categoría.');
             categorySelect.focus();
             return;
@@ -713,13 +724,62 @@ const productosCosmeticos = [
             return;
         }
 
-
         // Si todo está bien, enviar el formulario
         alert('¡Producto registrado con éxito!');
         form.reset(); // Limpiar campos
         additionalFieldsDiv.innerHTML = ''; // Limpiar campos adicionales después de enviar
     });
 });
+function registrarProducto() {
+  const productName = productNameInput.value;
+  const category = categorySelect.value;
+  const productPrice = productPriceInput.value;
+  const productCode = productCodeInput.value;
+  const productImage = document.getElementById("productImage").files[0];
+  const additionalFields = {};
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+      additionalFields.image = e.target.result;
+
+      // Recoger valores adicionales según la categoría
+      if (category === 'Maquillaje') {
+          additionalFields.tono = document.getElementById('tono').value;
+          additionalFields.acabado = document.getElementById('acabado').value;
+          additionalFields.duracion = document.getElementById('duracion').value;
+          additionalFields.marca = document.getElementById('marc').value;
+      } else if (category === 'Cuidado de la piel') {
+          additionalFields.edad = document.getElementById('age').value;
+          additionalFields.beneficios = document.getElementById('benefits').value;
+          additionalFields.uso = document.getElementById('use').value;
+          additionalFields.marca = document.getElementById('marca').value;
+      } else if (category === 'Cabello') {
+          additionalFields.tipoCabello = document.getElementById('hairType').value;
+          additionalFields.contenido = document.getElementById('hairCondition').value;
+          additionalFields.duracion = document.getElementById('dur').value;
+          additionalFields.uso = document.getElementById('us').value;
+          additionalFields.marca = document.getElementById('mq').value;
+      } else if (category === 'Uñas') {
+          additionalFields.colorUñas = document.getElementById('nailColor').value;
+          additionalFields.acabado = document.getElementById('nailType').value;
+          additionalFields.duracion = document.getElementById('durc').value;
+          additionalFields.marca = document.getElementById('mr').value;
+      }
+
+      const nuevoProducto = {
+          nombre: productName,
+          categoria: category,
+          precio: productPrice,
+          codigo: productCode,
+          ...additionalFields
+      };
+
+      let productosRegistrados = JSON.parse(localStorage.getItem("productosRegistrados")) || [];
+      productosRegistrados.push(nuevoProducto);
+      localStorage.setItem("productosRegistrados", JSON.stringify(productosRegistrados));
+  };
+  reader.readAsDataURL(productImage);
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   const title = document.getElementById('title_pr');
@@ -733,7 +793,6 @@ document.addEventListener("DOMContentLoaded", function() {
           title.classList.toggle('animate__flip'); // Quitar la clase de animación de animate.css
       }, 2000);
   }
-
   // Llamar a la función de animación repetidamente
   setInterval(toggleAnimation, 2000); // Repetir cada 2 segundos (2000ms de animación + 2000ms de pausa)
 });
