@@ -183,13 +183,15 @@ main{
 .producto-detalles{
     background-color:var(--clr-main) ;
     color: var(--clr-white);
-    padding: .5rem;
+    padding: .7rem;
     border-radius: 1rem;
     margin-top: -2rem;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: .25rem;
+    width: 350px;
+    height: 320px;
    
 }
 .producto-title{

@@ -14,10 +14,9 @@
                 <h1 id="title_pr">DROGUERIA & COLMENA VALERY </h1>   
             <nav class="navbar">
                 <a href="Index.html">Registros</a>
-                <a href="#">Buscador</a>
                 <a href="Indicaciones.html">Inicio</a>
                 <a href="Productos.html">Productos</a>
-                <a href="#">Filtro</a>
+                <a href="filtro.html">Buscador</a>
             </nav>
         </div>
     </article>
@@ -29,44 +28,44 @@
             <form id="productForm" enctype="multipart/form-data"><br>
                 <div class="form-group">
                     <label for="productName">Nombre del Producto</label>
-                    <input type="text" class="form-control" id="productName" placeholder="Ingrese el nombre del producto">
+                    <input type="text" minlength="20" maxlength="30" class="form-control" id="productName" placeholder="Ingrese el nombre del producto">
                 </div><br>
                 <div class="form-group">
                     <label for="category">Categoría</label>
-                    <select class="form-control" id="category">
+                    <select class="form-control" id="categoria">
                         <option value="" disabled selected>Seleccionar categoría</option>
                         <option value="Maquillaje">Maquillaje</option>
-                        <option value="Cuidado de la piel">Cuidado de la piel</option>
-                        <option value="Cabello">Cabello</option>
-                        <option value="Uñas">Uñas</option>
+                        <option value="Todo">Todos los Productos</option>
+                        <option value="Cuidado de la piel">Facial</option>
+                        <option value="Cabello">Capilar</option>
+                        <option value="Uñas">Manicure</option>
                     </select>
                 </div><br>
                 <div class="form-group">
                     <label for="productPrice">Precio</label>
-                    <input type="number" class="form-control" id="productPrice" placeholder="Ingrese el precio del producto">
+                    <input type="number" minlength="20" maxlength="30" class="form-control" id="productPrice" placeholder="Ingrese el precio del producto">
                 </div><br>
                 <div class="form-group">
-                    <label for="productImage">Imagen del Producto</label>
-                    <img id="previewImage" src="#" alt="Preview Image" style="max-width: 200px; display: none;">
-                    <input type="select" class="form-control" id="productImage">
-                    <select name="productImage" id="productImage">
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
+                    <label for="productImage">Imagen del Producto</label><br>
+                    <select class="form-control" name="productImage" id="productImage">   
+                        <option value="./img/1.jpg">Imagen 1</option>
+                        <option value="./img/2.webp">Imagen 2</option>
+                        <option value="./img/3.webp">Imagen 3</option>
+                        <option value="./img/4.jpg">Imagen 4</option>
+                        <option value="./img/5.webp">Imagen 5</option>
+                        <option value="./img/6.webp">Imagen 6</option>
+                        <option value="./img/7.webp">Imagen 7</option>
+                        <option value="./img/8.webp">Imagen 8</option>
+                        <option value="./img/9.jpg">Imagen 9</option>
+                        <option value="./img/10.jpg">Imagen 10</option>
                     </select>
+                    <img id="previewImage" src="" class="imgi" alt="Preview Image">
                 </div><br>
                 <!-- Campos adicionales específicos para cada categoría -->
                 <div id="additionalFields"></div>
                 <div class="form-group">
                     <label for="productCode">Código del Producto</label>
-                    <input type="text" class="form-control" id="productCode" placeholder="Ingrese el código del producto">
+                    <input type="text" minlength="20" maxlength="30" class="form-control" id="productCode" placeholder="Ingrese el código del producto">
                 </div><br>
                 <div id="btn_grupo">
                 <button type="submit" class="btn btn-primary">Registrar Producto</button>
@@ -79,5 +78,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="js/script.js" type="text/javascript"></script>
+        <script src="js/script1.js" type="text/javascript"></script>
     </body>
     </html>

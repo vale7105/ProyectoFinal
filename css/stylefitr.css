@@ -1,0 +1,130 @@
+/* Estilos para la tabla */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    
+  }
+
+body{
+    background: url(https://imgv3.fotor.com/images/gallery/Purple-gradient-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: 0;
+    padding: 0;
+    height: 180vh;
+    background-position: center;
+}
+#title_pr{
+    font-family: Broadway;
+    margin-left: 20px;
+    font-size: 37px;
+    text-align: center;
+    background-image: linear-gradient(to right, #000000, #d2176b, #ff5898, #000000); /* Degradado de colores */
+    background-size: 100%; /* Tamaño completo */
+    -webkit-background-clip: text; /* Clip de texto para aplicar el degradado */
+    background-clip: text; /* Clip de texto para aplicar el degradado - estándar */
+    -webkit-text-fill-color: transparent;
+    margin-top: 5px;
+    animation: fadeInUp 1s ease; /* Animación de entrada */
+
+}
+.tabla{
+    font-family: Arial;
+    font-size: 15px;
+}
+table {
+    border-collapse:collapse;
+    margin: 0 auto; /* Esto centra horizontalmente el contenedor */
+    width: 85%; /* Puedes ajustar el ancho del contenedor según tus necesidades */ 
+    border-spacing: 0;
+
+}
+th, td {
+    padding: 4px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+th {
+    background-color: #f2f2f2;
+}
+td {
+    background-color: white; /* Color de fondo blanco para las celdas de datos */
+    border: 1px solid #ddd; /* Borde delgado */
+}
+
+/* Estilos adicionales para resaltar las celdas al pasar el ratón sobre ellas */
+td:hover {
+    background-color: #f9f9f9; /* Cambia el color de fondo al pasar el ratón */
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+img {
+    max-width: 100px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagination button {
+    margin: 0 5px;
+    padding: 10px;
+}
+.pagination .active {
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+}
+.search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+#loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#loading img {
+    max-width: 20%; /* Ajusta el ancho máximo de la imagen */
+    max-height: 20%; /* Ajusta la altura máxima de la imagen */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+    margin: auto; /* Centra la imagen horizontalmente */
+   
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: rgba(255, 98, 176, 0.738);
+    transition: background-color 0.3s, color 0.3s;
+    margin-right: 10px;
+}
+.btn-primary:hover,
+.btn-secondary:hover {
+    background: linear-gradient(to right, #0088ff, rgb(137, 167, 250), #fe74db, #cb79ff);
+    color: #000; /* Cambia el color del texto a negro */
+}
+#Categoria{
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: rgba(210, 106, 255, 0.742);
+}
+input{
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color:#000000aa;
+    color: #ddd;
+}

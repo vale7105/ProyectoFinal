@@ -1,11 +1,13 @@
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const botonSiguiente = document.querySelector("#boton-siguiente");
+const numerosPaginacion = document.querySelector("#numeros-paginacion");
 const botonAnterior = document.querySelector("#boton-anterior");
 const tituloPrincipal = document.querySelector(".Titulo-principal");
 const numerito = document.querySelector("#numerito");
 
-let productosPorPagina = 9; // 3 columnas x 2 filas
+let productosPorPagina = 15; // 3 columnas x 5 filas
+let datastorage ;
 let paginaActual = 1;
 let productosFiltrados = [];
 let productosEnCarrito = [];
@@ -19,6 +21,7 @@ function cargarProductos(productosElegidos, pagina = 1) {
     const fin = inicio + productosPorPagina;
     const productosPagina = productosElegidos.slice(inicio, fin);
 
+    
     productosPagina.forEach(producto => {
         const div = document.createElement("div");
         div.classList.add("producto");
@@ -35,6 +38,9 @@ function cargarProductos(productosElegidos, pagina = 1) {
                 ${producto.color ? `<p class="producto-color">Color: ${producto.color}</p>` : ''}
                 ${producto.duracion ? `<p class="producto-dur">Duración: ${producto.duracion}</p>` : ''}
                 ${producto.tonos ? `<p class="producto-tono">Tonos: ${producto.tonos}</p>` : ''}
+                ${producto.efecto? `<p class="producto-efecto">Efecto: ${producto.efecto}</p>` : ''}
+                ${producto.tipodePestaña ? `<p class="producto-pestaña">Tipo de Pestaña: ${producto.tipodePestaña}</p>` : ''}
+                ${producto.tipocabello ? `<p class="producto-cabello">Tipo de Cabello: ${producto.tipocabello}</p>` : ''}
                 ${producto.contenido ? `<p class="producto-cont">Contenido: ${producto.contenido}</p>` : ''}
                 ${producto.uso ? `<p class="producto-uso">Uso: ${producto.uso}</p>` : ''}
                 <p class="producto-precio">$ ${producto.precio}</p> 
@@ -49,8 +55,22 @@ function cargarProductos(productosElegidos, pagina = 1) {
 }
 
 function actualizarBotones() {
+    numerosPaginacion.innerHTML = "";
+    const totalPaginas = Math.ceil(productosFiltrados.length / productosPorPagina);
+
+    for (let i = 1; i <= totalPaginas; i++) {
+        const boton = document.createElement("button");
+        boton.classList.add("boton-paginacion");
+        boton.innerText = i;
+        if (i === paginaActual) {
+            boton.classList.add("active");
+        }
+        boton.addEventListener("click", () => cargarProductos(productosFiltrados, i));
+        numerosPaginacion.append(boton);
+    }
+
     botonAnterior.disabled = paginaActual === 1;
-    botonSiguiente.disabled = paginaActual === Math.ceil(productosFiltrados.length / productosPorPagina);
+    botonSiguiente.disabled = paginaActual === totalPaginas;
 }
 
 function agregarAlCarrito(e) {
@@ -80,7 +100,6 @@ function activarBotonesAgregar() {
     botonesAgregar.forEach(boton => boton.addEventListener("click", agregarAlCarrito));
 }
 
-cargarProductos(productosCosmeticos);
 
 botonesCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
@@ -107,4 +126,14 @@ botonSiguiente.addEventListener("click", () => {
 botonAnterior.addEventListener("click", () => {
     cargarProductos(productosFiltrados, paginaActual - 1);
 });
-
+ const buscar = async () =>{
+    const productos = JSON.parse(localStorage.getItem("productosCosmeticos")) || [];
+    return productos;
+ }
+ const iniciarPagina = async() =>{
+    datastorage =  await buscar();
+    cargarProductos(datastorage);
+    actualizarBotones();
+    activarBotonesAgregar();
+ }
+iniciarPagina();

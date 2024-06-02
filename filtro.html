@@ -1,1 +1,71 @@
-filtro.html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/stylefitr.css">
+    <link rel="stylesheet" type="text/css" href="css/pseudoclases.css">
+    <title>Drogueria y Colmena Valery</title>
+</head>
+
+<body>
+    <section>
+        <article>
+            <div class="head">
+                <h1 id="title_pr">DROGUERIA & COLMENA VALERY</h1>
+                <nav class="navbar">
+                    <a href="Index.html">Registros</a>
+                    <a href="Indicaciones.html">Inicio</a>
+                    <a href="Productos.html">Productos</a>
+                    <a href="filtro.html">Buscador</a>
+                </nav>
+            </div>
+            <br><br><br><br><br><br>
+
+            <div class="search-bar">
+
+                <input type="text" id="Nombre" placeholder="Buscar por nombre">
+                <input type="text" id="Codigo" placeholder="Buscar por código">
+
+                <select id="Categoria">
+                    <option value="">Todas las categorías</option>
+                    <option value="maquillaje">Maquillaje</option>
+                    <option value="cabello">Capilar</option>
+                    <option value="cuidado-facial">Facial</option>
+                    <option value="uñas">Manicure</option>
+                </select>
+
+                <button class="btn-primary" onclick="searchProducts()">Buscar</button>
+                <button class="btn-secondary" onclick="clearSearch()">Limpiar</button>
+
+            </div>
+            <div id="loading" style="display: none;">
+                <img src="./img/cargando.gif" alt="Cargando..." />
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Código</th>
+                        <th>Marca</th>
+                        <th>Precio</th>
+                        <th>Categoría</th>
+                        <th>Beneficio</th>
+                    </tr>
+                </thead>
+                <tbody id="productos-table">
+                    <!-- Aquí se insertarán las filas de la tabla -->
+                </tbody>
+            </table>
+            <div class="pagination">
+                <!-- Aquí se insertarán los botones de paginación -->
+            </div>
+
+            <script src="js/filtro.js" type="text/javascript"></script>
+        </article>
+    </section>
+</body>
+
+</html>

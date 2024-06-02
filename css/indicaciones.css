@@ -41,10 +41,14 @@ body {
 	background: url(https://png.pngtree.com/background/20210715/original/pngtree-plant-palm-leaf-simple-background-picture-image_1325702.jpg) no-repeat center;
 	background-size:cover ;
 }
+.apr{
+    display: flex;
+}
 .btni{
-	display: inline-block;
+	display: flex;
 	margin-top: 15px;
 	padding: 10px 40px;
+    margin-right: 10px;
 	border: 2px solid rgb(0, 88, 139);
 	color: rgb(0, 0, 0);
 	text-decoration: none;
@@ -59,6 +63,9 @@ body {
 }
 .produc{
     color: #ffffff;
+}
+.reini{
+    margin-left: 20px;
 }
 
 .title{
