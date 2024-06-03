@@ -60,9 +60,14 @@ function anterior() {
         displayProducts(currentPage);
     }
 }
+const buscar = async () =>{
+    const productos = JSON.parse(localStorage.getItem("productosCosmeticos")) || [];
+    return productos;
+ }
 
-function searchProducts() {
+async function searchProducts() {
     document.getElementById('loading').style.display = 'block';
+    productosCosmeticos = await buscar();
     new Promise((resolve) => {
         setTimeout(() => {
             const Nombre = document.getElementById('Nombre').value.toLowerCase();
@@ -72,7 +77,7 @@ function searchProducts() {
             filteredProducts = productosCosmeticos.filter(product => {
                 const nombreMatch = product.nombre.toLowerCase().includes(Nombre);
                 const codigoMatch = product.codigo.toLowerCase().includes(Codigo);
-                const categoriaMatch = Categoria ? product.categoria.id.toLowerCase() === Categoria : true;
+                const categoriaMatch = product.categoria.id.toLowerCase().includes(Categoria);
                 return nombreMatch && codigoMatch && categoriaMatch;
             });
 
@@ -93,10 +98,6 @@ async function clearSearch() {
     currentPage = 1;
     displayProducts(currentPage);
 }
-const buscar = async () =>{
-    const productos = JSON.parse(localStorage.getItem("productosCosmeticos")) || [];
-    return productos;
- }
  async function Iniciar (){
  filteredProducts = await buscar();
  displayProducts(currentPage);

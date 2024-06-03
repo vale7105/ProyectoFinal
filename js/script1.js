@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function addAdditionalFields(category) {
         additionalFieldsDiv.innerHTML = ''; // Limpiar campos adicionales antes de agregar nuevos
 
-        if (category === 'Maquillaje') {
+        if (category === 'maquillaje') {
             const maquillajeFields = `
                 <div class="form-group">
                     <label for="tono">Tono</label>
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <br>
             `;
             additionalFieldsDiv.innerHTML = maquillajeFields;
-        } else if (category === 'Cuidado de la piel') {
+        } else if (category === 'cuidado-facial') {
             const cuidadoPielFields = `
                 <div class="form-group">
                     <label for="años">Edad Recomendada</label>
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <br>
             `;
             additionalFieldsDiv.innerHTML = cuidadoPielFields;
-        } else if (category === 'Cabello') {
+        } else if (category === 'cabello') {
             const cabelloFields = `
                 <div class="form-group">
                     <label for="hairType">Tipo de Cabello</label>
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <br>
             `;
             additionalFieldsDiv.innerHTML = cabelloFields;
-        } else if (category === 'Uñas') {
+        } else if (category === 'uñas') {
             const uñasFields = `
                 <div class="form-group">
                     <label for="nailColor">Color de Uñas</label>
@@ -158,9 +158,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const tono = document.getElementById('tono') ? document.getElementById('tono').value : '';
         const acabado = document.getElementById('acabado') ? document.getElementById('acabado').value : '';
         const dur = document.getElementById('dur') ? document.getElementById('dur').value : '';
-        const marca = document.getElementById('marca') ? document.getElementById('marca').value : '';
+        const marca = document.getElementById('marca').value;
         const años = document.getElementById('años') ? document.getElementById('años').value : '';
-        const beneficio = document.getElementById('beneficio') ? document.getElementById('beneficio').value : '';
+        const beneficio = document.getElementById('beneficio').value;
         const us = document.getElementById('us') ? document.getElementById('us').value : '';
         const hairType = document.getElementById('hairType') ? document.getElementById('hairType').value : '';
         const hairCondition = document.getElementById('hairCondition') ? document.getElementById('hairCondition').value : '';
@@ -170,21 +170,46 @@ document.addEventListener("DOMContentLoaded", function() {
         const codigoProducto = productCodeInput.value;
         const CategoriaProducto = categorySelect.value;
         const precioProducto = productPriceInput.value;
-        const imagenProducto = selectImagen.value; // Asume que este campo se obtendrá de alguna manera
+        const imagenProducto = selectImagen.value; // Se asume que este campo se obtendrá de alguna manera
         // Asume que estos campos se obtendrán de alguna manera, tal vez una vez cargada la imagen o en otro input
+        let nombreCategoria
+        switch (CategoriaProducto) {
 
+            case "cuidado-facial":
+                nombreCategoria = "Facial"
+                break;
+             case "maquillaje":
+                nombreCategoria = "Maquillaje"
+                break;
+            case "cabello":
+                nombreCategoria = "Capilar"
+                break;
+            case "uñas":
+                nombreCategoria = "Manicura"
+                break;
+        
+            default:
+                nombreCategoria = "Todas las categorias"
+                break;
+        }
+        const objeto = {
+            id: CategoriaProducto,
+            nombre: nombreCategoria,
+         }
+        let arrayMarcas = marca?.split(",")
+        let arrayBeneficios = beneficio?.split(",")
         const newProducto = {
             nombre: NombreProducto,
             codigo: codigoProducto,
-            categoria: CategoriaProducto,
+            categoria: objeto,
             imagen: imagenProducto,
             precio: precioProducto,
             tono: tono,
             acabado: acabado,
             duracion: dur,
-            marca: marca,
+            marca:  arrayMarcas,
             edadRecomendada: años,
-            beneficios: beneficio,
+            beneficios: arrayBeneficios,
             uso: us,
             tipocabello: hairType,
             contenido: hairCondition,
