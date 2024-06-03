@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-
+ // Obtener referencias a los elementos del formulario
     const form = document.getElementById('productForm');
     const productNameInput = document.getElementById('productName');
     const categorySelect = document.getElementById('categoria');
@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         additionalFieldsDiv.innerHTML = ''; // Limpiar campos adicionales antes de agregar nuevos
 
         if (category === 'maquillaje') {
+            // Campos adicionales para la categoría maquillaje
             const maquillajeFields = `
                 <div class="form-group">
                     <label for="tono">Tono</label>
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
             additionalFieldsDiv.innerHTML = maquillajeFields;
         } else if (category === 'cuidado-facial') {
+              // Campos adicionales para la categoría cuidado facial
             const cuidadoPielFields = `
                 <div class="form-group">
                     <label for="años">Edad Recomendada</label>
@@ -70,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
             additionalFieldsDiv.innerHTML = cuidadoPielFields;
         } else if (category === 'cabello') {
+            // Campos adicionales para la categoría cabello
             const cabelloFields = `
                 <div class="form-group">
                     <label for="hairType">Tipo de Cabello</label>
@@ -104,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
             additionalFieldsDiv.innerHTML = cabelloFields;
         } else if (category === 'uñas') {
+             // Campos adicionales para la categoría uñas
             const uñasFields = `
                 <div class="form-group">
                     <label for="nailColor">Color de Uñas</label>
@@ -144,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Evitar que se envíe el formulario por defecto
 
-        // Validar campos
+        // Validar campos del formulario
         if (productNameInput.value.trim() === '') {
             alert('Por favor, ingrese el nombre del producto.');
             productNameInput.focus();
@@ -185,8 +189,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const codigoProducto = productCodeInput.value;
         const CategoriaProducto = categorySelect.value;
         const precioProducto = productPriceInput.value;
-        const imagenProducto = selectImagen.value; // Se asume que este campo se obtendrá de alguna manera
-        // Asume que estos campos se obtendrán de alguna manera, tal vez una vez cargada la imagen o en otro input
+        const imagenProducto = selectImagen.value; // Se asume que este campo se obtendrá de alguna manera // Asume que estos campos se obtendrán de alguna manera, tal vez una vez cargada la imagen o en otro input
+        
+        // Determinar el nombre de la categoría
         let nombreCategoria
         switch (CategoriaProducto) {
 
@@ -207,12 +212,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 nombreCategoria = "Todas las categorias"
                 break;
         }
+
+          // Crear objeto de categoría
         const objeto = {
             id: CategoriaProducto,
             nombre: nombreCategoria,
          }
+
+          // Convertir las cadenas de marca y beneficios en arrays
         let arrayMarcas = marca?.split(",")
         let arrayBeneficios = beneficio?.split(",")
+        
+        // Crear objeto del nuevo producto
         const newProducto = {
             nombre: NombreProducto,
             codigo: codigoProducto,
@@ -231,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
             color: nailColor
         };
 
+         // Añadir el nuevo producto al localStorage
         añadir(newProducto);
         console.log(newProducto);
 
@@ -240,6 +252,7 @@ document.addEventListener("DOMContentLoaded", function() {
         additionalFieldsDiv.innerHTML = ''; // Limpiar campos adicionales después de enviar
     });
 
+     // Función para añadir el producto al localStorage
     const añadir = (productonew)=>{
 
         let producto = JSON.parse(localStorage.getItem("productosCosmeticos")) || [];
@@ -249,8 +262,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+  // Evento para mostrar la imagen seleccionada
 let selectImagen = document.getElementById("productImage");
 let imagenSelect = document.getElementById("previewImage");
 selectImagen.addEventListener('click', function () {
-    imagenSelect.src = selectImagen.value
-})
+    imagenSelect.src = selectImagen.value // Asignar la URL de la imagen al atributo src del elemento de imagen
+});
