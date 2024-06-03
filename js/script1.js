@@ -62,6 +62,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     <input type="text" minlength="10" maxlength="100" class="form-control" id="marca" placeholder="Ingrese la marca">
                 </div>
                 <br>
+                <div class="form-group">
+                    <label for="beneficio">Beneficios</label>
+                    <input type="text" minlength="10" maxlength="100" class="form-control" id="beneficio" placeholder="Ingrese los beneficios">
+                </div>
+                <br>
             `;
             additionalFieldsDiv.innerHTML = cuidadoPielFields;
         } else if (category === 'cabello') {
@@ -91,6 +96,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     <input type="text" minlength="10" maxlength="60" class="form-control" id="marca" placeholder="Ingrese la marca">
                 </div>
                 <br>
+                <div class="form-group">
+                    <label for="beneficio">Beneficios</label>
+                    <input type="text" minlength="10" maxlength="100" class="form-control" id="beneficio" placeholder="Ingrese los beneficios">
+                </div>
+                <br>
             `;
             additionalFieldsDiv.innerHTML = cabelloFields;
         } else if (category === 'uñas') {
@@ -113,6 +123,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="form-group">
                     <label for="marca">Marca</label>
                     <input type="text" minlength="10" maxlength="90" class="form-control" id="marca" placeholder="Ingrese la marca">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="beneficio">Beneficios</label>
+                    <input type="text" minlength="10" maxlength="100" class="form-control" id="beneficio" placeholder="Ingrese los beneficios">
                 </div>
                 <br>
             `;
